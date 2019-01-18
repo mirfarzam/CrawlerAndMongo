@@ -10,8 +10,8 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 const puppeteer = require('puppeteer');
 var MongoClient = require('mongodb').MongoClient;
-var createUrl = "mongodb://WFrMDNn:qogIsyi6o1TgszD@h3.2kloud.ir:27018/test?authMechanism=DEFAULT&authSource=admin";
-var mongoURL = "mongodb://WFrMDNn:qogIsyi6o1TgszD@h3.2kloud.ir:27018/digicrawler?authMechanism=DEFAULT&authSource=admin";
+var createUrl = "";
+var mongoURL = "";
 const async = require("async");
 
 
