@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <% var product = JSON.parse(JSON.stringify(result)) %>
+    <h1>changing informantion of DKP-<%= product.productId %></h1>
+    <% var AddressProductUpdate = "/updatingproductdata/dkp-" + product.productId %>
+    <form class="" action="<%= AddressProductUpdate %>" method="post">
+    <span> Product Id :</span><input type="text" name="id" value="<%= product.productId %>" placeholder="<%= product.productId %>" disabled><br>
+    <span> Product Name :</span><input type="text" name="name" value="" placeholder="<%= product.productName %>"><br>
+    <span> Product Image :</span><input type="text" name="image" value="" placeholder="<%= product.productImage %>"><br>
+    <span> Brand Name :</span><input type="text" name="brand" value="" placeholder="<%= product.brandName %>"><br>
+    <span> Category Name :</span><input type="text" name="category" value="" placeholder="<%= product.categoryName %>"><br>
+    <span> Product Price :</span><input type="text" name="price" value="" placeholder="<%= product.price %>"><br>
+    <<input type="submit" name="ok" value="ok">
+    </form>
+  </body>
+</html>

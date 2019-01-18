@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <% var newCommentId = 0 %>
+    <% var product = JSON.parse(JSON.stringify(result)) %>
+    <img src="<%= product.productImage %>">
+    <h3><%= product.productName %></h3>
+    <p>brand : <%= product.brandName %></p>
+    <p>category : <%= product.categoryName %></p>
+    <p>price : <%= product.price %></p>
+    <br>
+    <% var deleteAddress = "/deleteproduct/dkp-" + product.productId %>
+    <a href= "<%= deleteAddress %>" >delete this product</a>
+    <br>
+    <% var updateAddress = "/updateproduct/dkp-" + product.productId %>
+    <a href="<%= updateAddress %>" >change information of this product</a>
+    <br>
+    <br>
+    <h2>Comments </h2>
+    <% if(product.comments) { %>
+    <% for(var i=0; i < product.comments.length; i++) { %>
+    <% var comment = JSON.parse(JSON.stringify(product.comments[i])) %>
+      <% var commentDeleteAddress = "/deleteComment/dkp-" + product.productId  + "/cmt-" + comment.commentId %>
+      <div>
+        <h4><%= comment.commenter %></h4>
+        <p><%= comment.comment %></p>
+        <a href=" <%=commentDeleteAddress %>"> delete this comment </a>
+      </div>
+      <br>
+    <% } %>
+    <% } %>
+    <% var newCommentAddress = "/newComment/dkp-" + product.productId; %>
+    <h5>Do you want to write a new comment for this product ?</h5>
+    <form class="" action="<%= newCommentAddress %>" method="post">
+      <input type="text" name="commenter" value="" placeholder="what is you name?"><br>
+      <br>
+      <input type="text" name="comment" value="" placeholder="what is your idea?"><br>
+      <br>
+      <input type="submit" name="add product" value="add product">
+    </form>
+  </body>
+</html>

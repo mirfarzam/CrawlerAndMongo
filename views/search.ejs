@@ -1,0 +1,71 @@
+<head>
+  <link rel=”stylesheet” type=”text/css” href=”/css/style.css”>
+<style media="screen">
+    .products_section {
+      text-align: center;
+      width: 100%;
+      max-width: 1000px;
+      margin : 0px auto;
+    }
+
+    .product_box{
+      width: 300px;
+      border : 1px solid #ccc;
+      display : inline-block;
+      margin : 5px;
+    }
+
+    .product_box img{
+      width: 250px;
+      height : 250px;
+      object-fit: contain;
+      margin : 0px auto;
+    }
+
+  </style>
+</head>
+
+<body>
+  <section>
+    <form class="" action="/searchInProductsresult" method="post">
+      <select name="supplyCategory">
+        <option value="1">کالای دیجیتال</option>
+        <option value="2">آرایشی و بهداشتی و سلامت</option>
+        <option value="3">خودرو و ابزار و اداری</option>
+        <option value="4">مد و پوشاک</option>
+        <option value="5">خانه و آشپزخانه</option>
+        <option value="6">کتاب لوازم تحریر و هنر</option>
+        <option value="7">اسباب بازی و کودک و نوزاد</option>
+        <option value="8">ورزش و سفر</option>
+      </select>
+      <br><br>
+      <input type="text" name="name" value="" placeholder="title"><br>
+      <br>
+      <input type="text" name="brand" value="" placeholder="brand"><br>
+      <br>
+      <input type="text" name="category" value="" placeholder="category"><br>
+      <br>
+      <input type="text" name="greaterThat" value="" placeholder="price should be greater than ..."><br>
+      <br>
+      <input type="text" name="lessthan" value="" placeholder="price should be less than ..."><br>
+      <br>
+      <input type="submit" name="add product" value="Search Now!">
+    </form>
+  </section>
+<section class="products_section">
+<% for(var i=0; i < resultarray.length; i++) { %>
+<% var product = JSON.parse(JSON.stringify(resultarray[i])) %>
+  <script type="text/javascript">
+    var row = <%-JSON.stringify(resultarray[i])%>
+  </script>
+  <% var adress = "/product/dkp-" + product.productId %>
+  <a href = <%= adress %>>
+   <div class="product_box">
+    <img src="<%= product.productImage %>" alt="">
+    <h5> <%= product.productName %> <h5>
+    <p style="color:green;"> <%= product.price %> </p>
+   </div>
+   </a>
+<% } %>
+</section>
+</body>
