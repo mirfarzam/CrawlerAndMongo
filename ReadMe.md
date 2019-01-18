@@ -1,5 +1,5 @@
 # DigiCrawler
-###### created by Mehdi Arebilipour
+
 
 This project is a simple crawler on Digikala which try two gather data for 8 different main Digikala SupplyCategory which you can see in nav bar and gather data from first 2 result search of those supply categories. then the GUI lets you to search, add, update and delete each product. And also you can delete comments or add new Comments.
 
